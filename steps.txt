@@ -1,0 +1,6 @@
+1. create the models and fields (i want to create a model for ecommerce product)
+2. Write the view for POST (to create), GET (to retrieve), PUT/PATCH (to update), DELETE (to delete)
+3. Create the serializer
+4. Map the urls to the views
+5. Make migration and migrate
+

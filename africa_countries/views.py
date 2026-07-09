@@ -1,7 +1,8 @@
 
 from django.shortcuts import render
 from .models import AfricaCountry
-
+from .serializers import AfricaCountrySerializer
+from .serializers import AfricaCountryListSerializer
 from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework import generics
@@ -9,6 +10,21 @@ from rest_framework import generics
 class AfricaCountryListCreateView(generics.ListCreateAPIView):
     queryset = AfricaCountry.objects.all()
     serializer_class = AfricaCountrySerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return AfricaCountryListSerializer
+        return AfricaCountrySerializer
+
+class AfricaCountryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AfricaCountry.objects.all()
+    serializer_class = AfricaCountrySerializer
+    lookup_field = 'id'
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return AfricaCountryListSerializer
+        return AfricaCountrySerializer
 
 def africa_country(request):
     

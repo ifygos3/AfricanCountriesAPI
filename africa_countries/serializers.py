@@ -11,5 +11,7 @@ class AfricaCountrySerializer(serializers.ModelSerializer):
 class AfricaCountryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = AfricaCountry
-        fields = ['id', 'name', 'capital', 'population', 'area', 'currency', 'language']
+        fields = ['id', 'name', 'capital', 'population', 'area', 'currency', 'official_language']
+
+        read_only_fields = ['id']
         
