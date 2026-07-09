@@ -1,8 +1,14 @@
 
 from django.shortcuts import render
+from .models import AfricaCountry
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from rest_framework import generics
+
+class AfricaCountryListCreateView(generics.ListCreateAPIView):
+    queryset = AfricaCountry.objects.all()
+    serializer_class = AfricaCountrySerializer
 
 def africa_country(request):
     
